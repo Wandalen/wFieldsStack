@@ -22,10 +22,11 @@
   },
   "dependencies": {
     "wTools": "",
-    "wfieldsstack": "."
+    "wProto": ""
   },
   "devDependencies": {
-    "wTesting": ""
+    "wTesting": "",
+    "wfieldsstack": "."
   },
   "keywords": [
     "wTools"
