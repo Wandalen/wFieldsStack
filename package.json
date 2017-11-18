@@ -2,7 +2,7 @@
 {
   "name": "wfieldsstack",
   "version": "0.3.0",
-  "description": "",
+  "description": "FieldsStack mixin make possible pushing/popping values of fields of an instance to/from a stack.",
   "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
   "license": "MIT",
   "main": "staging/dwtools/amid/",
