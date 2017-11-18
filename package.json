@@ -5,9 +5,9 @@
   "description": "FieldsStack mixin make possible pushing/popping values of fields of an instance to/from a stack.",
   "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
   "license": "MIT",
-  "main": "staging/dwtools/amid/",
+  "main": "staging/dwtools/abase/mixin/FieldsStack.s",
   "files": [
-    "staging/dwtools/amid",
+    "staging/dwtools/abase/mixin/FieldsStack.s",
     "production"
   ],
   "scripts": {
