@@ -1,7 +1,6 @@
-
 {
   "name": "wfieldsstack",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "FieldsStack mixin make possible pushing/popping values of fields of an instance to/from a stack.",
   "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
   "license": "MIT",
