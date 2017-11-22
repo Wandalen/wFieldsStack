@@ -157,7 +157,7 @@ var Self =
 
   _mixin : _mixin,
   supplement : Supplement,
-  name : 'wFieldStack',
+  name : 'wFieldsStack',
   nameShort : 'FieldStack',
 
 }
