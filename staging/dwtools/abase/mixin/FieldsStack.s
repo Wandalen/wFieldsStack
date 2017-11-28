@@ -80,6 +80,10 @@ function fieldReset( fields )
     _.assert( arguments[ 1 ] !== undefined );
     fields = { [ arguments[ 0 ] ] : arguments[ 1 ] }
   }
+  else if( arguments.length === 1 && _.strIs( arguments[ 0 ] ) )
+  {
+    fields = { [ arguments[ 0 ] ] : nil }
+  }
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
   _.assert( _.mapIs( fields ) );
@@ -88,7 +92,7 @@ function fieldReset( fields )
   {
     var _field = self._fields[ s ];
     _.assert( _.arrayIs( _field ) );
-    _.assert( self[ s ] === fields[ s ] );
+    _.assert( self[ s ] === fields[ s ] || fields[ s ] === nil );
     self[ s ] = _field.pop();
     if( !self._fields[ s ].length )
     delete self._fields[ s ];
@@ -157,8 +161,8 @@ var Self =
 
   _mixin : _mixin,
   supplement : Supplement,
-  name : 'wFieldStack',
-  nameShort : 'FieldStack',
+  name : 'wFieldsStack',
+  nameShort : 'FieldsStack',
 
 }
 
