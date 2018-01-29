@@ -2,22 +2,32 @@
 
 'use strict';
 
-var _ = wTools;
+var _ = _global_.wTools;
 var _hasOwnProperty = Object.hasOwnProperty;
 
 if( typeof module !== 'undefined' )
 {
 
-  try
+  if( typeof _global_ === 'undefined' || !_global_.wBase )
   {
-    require( '../../Base.s' );
-  }
-  catch( err )
-  {
-    require( 'wTools' );
+    let toolsPath = '../../../../dwtools/Base.s';
+    let toolsExternal = 0;
+    try
+    {
+      require.resolve( toolsPath )/*hhh*/;
+    }
+    catch( err )
+    {
+      toolsExternal = 1;
+      require( 'wTools' );
+    }
+    if( !toolsExternal )
+    require( toolsPath )/*hhh*/;
   }
 
-  wTools.include( 'wProto' );
+  var _ = _global_.wTools;
+
+  _.include( 'wProto' );
 
 }
 
@@ -30,7 +40,7 @@ function _mixin( cls )
 
   _.assert( arguments.length === 1 );
   _.assert( _.routineIs( cls ) );
-  _.assert( _.mixinHas( proto,wCopyable ),'wCopyable should be mixed in first' );
+  _.assert( _.mixinHas( proto,_.Copyable ),'wCopyable should be mixed in first' );
 
   _.mixinApply
   ({
@@ -143,6 +153,8 @@ var Supplement =
   fieldSet : fieldSet,
   fieldReset : fieldReset,
 
+  fieldPush : fieldSet,
+  fieldPop : fieldReset,
 
   //
 
@@ -168,8 +180,17 @@ var Self =
 
 //
 
+_global_[ Self.name ] = _[ Self.nameShort ] = _.mixinMake( Self );
+
+// --
+// export
+// --
+
 if( typeof module !== 'undefined' )
+if( _global_._UsingWtoolsPrivately_ )
+delete require.cache[ module.id ];
+
+if( typeof module !== 'undefined' && module !== null )
 module[ 'exports' ] = Self;
-_global_[ Self.name ] = wTools[ Self.nameShort ] = _.mixinMake( Self );
 
 })();
