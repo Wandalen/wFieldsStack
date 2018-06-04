@@ -92,7 +92,7 @@ function fieldReset( fields )
   }
   else if( arguments.length === 1 && _.strIs( arguments[ 0 ] ) )
   {
-    fields = { [ arguments[ 0 ] ] : nil }
+    fields = { [ arguments[ 0 ] ] : _.nothing }
   }
 
   _.assert( arguments.length === 1 || arguments.length === 2 );
@@ -102,7 +102,7 @@ function fieldReset( fields )
   {
     var _field = self._fields[ s ];
     _.assert( _.arrayIs( _field ) );
-    _.assert( self[ s ] === fields[ s ] || fields[ s ] === nil );
+    _.assert( self[ s ] === fields[ s ] || fields[ s ] === _.nothing );
     self[ s ] = _field.pop();
     if( !self._fields[ s ].length )
     delete self._fields[ s ];
