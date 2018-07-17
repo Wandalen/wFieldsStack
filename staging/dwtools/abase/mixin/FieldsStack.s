@@ -38,7 +38,7 @@ function _mixin( cls )
 
   var proto = cls.prototype;
 
-  _.assert( arguments.length === 1 );
+  _.assert( arguments.length === 1, 'expects single argument' );
   _.assert( _.routineIs( cls ) );
   _.assert( _.mixinHas( proto,_.Copyable ),'wCopyable should be mixed in first' );
 
@@ -144,7 +144,7 @@ var Statics =
 }
 
 // --
-// proto
+// define class
 // --
 
 var Supplement =
