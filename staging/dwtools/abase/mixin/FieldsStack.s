@@ -33,20 +33,20 @@ if( typeof module !== 'undefined' )
 
 //
 
-function _mixin( cls )
+function onMixin( dstClass )
 {
+  var dstPrototype = dstClass.prototype;
 
-  var proto = cls.prototype;
+  _.assert( arguments.length === 2, 'expects exactly two arguments' );
+  _.assert( _.routineIs( dstClass ) );
+  _.assert( _.mixinHas( dstPrototype,_.Copyable ),'wCopyable should be mixed in first' );
 
-  _.assert( arguments.length === 1, 'expects single argument' );
-  _.assert( _.routineIs( cls ) );
-  _.assert( _.mixinHas( proto,_.Copyable ),'wCopyable should be mixed in first' );
-
-  _.mixinApply
-  ({
-    dstProto : proto,
-    descriptor : Self,
-  });
+  _.mixinApply( this, dstPrototype );
+  // _.mixinApply
+  // ({
+  //   dstPrototype : proto,
+  //   descriptor : Self,
+  // });
 
 }
 
@@ -119,7 +119,7 @@ function fieldReset( fields )
 }
 
 // --
-// relationships
+// relations
 // --
 
 var Composes =
@@ -171,16 +171,16 @@ var Supplement =
 var Self =
 {
 
-  _mixin : _mixin,
+  onMixin : onMixin,
   supplement : Supplement,
   name : 'wFieldsStack',
-  nameShort : 'FieldsStack',
+  shortName : 'FieldsStack',
 
 }
 
 //
 
-_global_[ Self.name ] = _[ Self.nameShort ] = _.mixinMake( Self );
+_global_[ Self.name ] = _[ Self.shortName ] = _.mixinMake( Self );
 
 // --
 // export
