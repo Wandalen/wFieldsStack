@@ -3,7 +3,7 @@
 'use strict';
 
 var _global = _global_; var _ = _global_.wTools;
-var _hasOwnProperty = Object.hasOwnProperty;
+var _ObjectHasOwnProperty = Object.hasOwnProperty;
 
 if( typeof module !== 'undefined' )
 {
