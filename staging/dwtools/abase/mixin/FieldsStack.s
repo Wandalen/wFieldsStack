@@ -71,7 +71,9 @@ function fieldSet( fields )
     if( !self._fields[ s ] )
     self._fields[ s ] = [];
     self._fields[ s ].push( self[ s ] );
+    // logger.log( 'fieldSet ' + s + ' ' + _.toStrShort( self[ s ] ) + ' -> ' + _.toStrShort( fields[ s ] ) );
     self[ s ] = fields[ s ];
+    // logger.log( 'fieldSet new value of ' + s + ' ' + self[ s ] );
   }
 
   return self;
@@ -100,9 +102,14 @@ function fieldReset( fields )
 
   for( var s in fields )
   {
+    var wasVal = fields[ s ];
+    var selfVal = self[ s ];
     var _field = self._fields[ s ];
+
+    // logger.log( 'fieldReset ' + s + ' ' + _.toStrShort( selfVal ) + ' ~ ' + _.toStrShort( wasVal ) );
+
     _.assert( _.arrayIs( _field ) );
-    _.assert( self[ s ] === fields[ s ] || fields[ s ] === _.nothing );
+    _.assert( selfVal === wasVal || wasVal === _.nothing, () => 'Decoupled fieldReset ' + _.toStrShort( selfVal ) + ' != ' + _.toStrShort( wasVal ) );
     self[ s ] = _field.pop();
     if( !self._fields[ s ].length )
     delete self._fields[ s ];
