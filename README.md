@@ -8,3 +8,4 @@ Mixin adds fields rotation mechanism to your class. It's widespread problem to c
 npm install
 node sample/Sample.s
 ```
+
