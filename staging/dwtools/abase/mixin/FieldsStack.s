@@ -152,7 +152,7 @@ var Associates =
 
 var Restricts =
 {
-  _fields : Object.create( null ),
+  _fields : _.define.own( {} ),
 }
 
 var Statics =
@@ -196,7 +196,7 @@ var Self =
 
 //
 
-_global_[ Self.name ] = _[ Self.shortName ] = _.mixinMake( Self );
+_global_[ Self.name ] = _[ Self.shortName ] = _.mixinDelcare( Self );
 
 // --
 // export
