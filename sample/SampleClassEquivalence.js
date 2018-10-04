@@ -1,4 +1,3 @@
-
 if( typeof module !== 'undefined' )
 {
   require( 'wTools' );
@@ -59,33 +58,27 @@ _.FieldsStack.mixin( SampleClass );
 
 // Instance of the class
 var sample = new SampleClass();
-logger.log( 'Initial class' )
+logger.log( '' )
+logger.log( 'Initial class Sample' )
 logger.log( sample )
 
-//Add new fields
 var newFields =
 {
-  field1 : null,
-  field2 : null,
+  field0 : null,
 }
+
 sample.fieldSet( newFields );
-logger.log('')
-logger.log('New fields set')
+
+logger.log( '' )
+logger.log( 'Initial classwith added field' )
 logger.log( sample )
 
-//Change fields value
-newFields =
-{
-  field1 : 'Hi',
-  field2 : 'World',
-}
-sample.fieldSet( newFields );
-logger.log('')
-logger.log('New fields set')
-logger.log( sample )
+var expected = new SampleClass();
 
-//Reset fields
-sample.fieldReset( newFields );
-logger.log('')
-logger.log('New fields reset')
-logger.log( sample )
+logger.log( '' )
+logger.log( 'Empty class to compare' )
+logger.log( expected )
+
+logger.log( '' )
+logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) );  // Since sample has an extra field, shouldn´t it be false?
+logger.log( 'Sample has field0 =', sample.hasField(  'field0' ) ) // Shouldn´t this be true?
