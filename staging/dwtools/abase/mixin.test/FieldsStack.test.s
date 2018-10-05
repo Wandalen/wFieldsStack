@@ -146,6 +146,16 @@ function fieldSet( test )
   var expected = 'third field';
   test.identical( sample.field3, expected );
 
+  test.description = 'Change single field'; //
+
+  var sample = new SampleClass();
+  var field3 = 'New third field';
+
+  sample.fieldSet( 'field3', field3 );
+
+  var expected = 'New third field';
+  test.identical( sample.field3, expected );
+
   /* */
 
   if( !Config.debug )
@@ -154,6 +164,23 @@ function fieldSet( test )
 
   var sample = new SampleClass();
   test.shouldThrowErrorSync( () => sample.fieldSet( ));
+
+  var newFields =
+  {
+    field1 : null,
+    field2 : null,
+  }
+  test.shouldThrowErrorSync( () => sample.fieldSet( newFields, newFields ));
+  test.shouldThrowErrorSync( () => sample.fieldSet( null ));
+  test.shouldThrowErrorSync( () => sample.fieldSet( NaN ));
+  test.shouldThrowErrorSync( () => sample.fieldSet( 3 ));
+  test.shouldThrowErrorSync( () => sample.fieldSet( 'Fields' ));
+  test.shouldThrowErrorSync( () => sample.fieldSet( null, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldSet( NaN, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldSet( 3, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldSet( 'Fields', 'Value1', 'Value2' ));
+
+
 
 }
 
