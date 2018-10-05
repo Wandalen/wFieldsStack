@@ -67,7 +67,7 @@ logger.log( sample )
 
 var newFields =
 {
-  field0 : null,
+  field0 : 1,
 }
 
 sample.fieldSet( newFields );
@@ -84,4 +84,5 @@ logger.log( expected )
 
 logger.log( '' )
 logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) );  // Since sample has an extra field, shouldn´t it be false?
+debugger;
 logger.log( 'Sample has field0 =', sample.hasField(  'field0' ) ) // Shouldn´t this be true?
