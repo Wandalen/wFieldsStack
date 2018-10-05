@@ -51,6 +51,7 @@ function onMixin( mixinDescriptor, dstClass )
   _.assert( _.mixinHas( dstPrototype,_.Copyable ),'wCopyable should be mixed in first' );
 
   _.mixinApply( this, dstPrototype );
+
   // _.mixinApply
   // ({
   //   dstPrototype : proto,

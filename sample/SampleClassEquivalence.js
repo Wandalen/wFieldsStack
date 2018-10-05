@@ -14,6 +14,7 @@ console.log( 'wFieldsStack mixin included' );
 */
 
 // Declare class
+
 let o =
 {
   storageFileName : null,
@@ -27,6 +28,7 @@ let Associates =
 {
   storageFileName : o.storageFileName,
   fileProvider : _.define.own( o.fileProvider ),
+  field0 : null,
 }
 
 function SampleClass( o )
@@ -37,6 +39,7 @@ function SampleClass( o )
 function init( o )
 {
   _.instanceInit( this );
+  Object.preventExtensions( this );
 }
 let Extend =
 {

@@ -34,7 +34,6 @@ if( typeof module !== 'undefined' )
 
 var _ = _global_.wTools.withArray.Float32;
 
-// Declare class
 let o =
 {
   storageFileName : null,
@@ -59,6 +58,7 @@ function init( o )
 {
   _.instanceInit( this );
 }
+
 let Extend =
 {
   init : init,
@@ -67,13 +67,13 @@ let Extend =
   Composes : o.fields,
   Associates : Associates,
 }
+
 _.classDeclare
 ({
   cls : SampleClass,
   extend : Extend,
 });
 
-// Mixin
 _.Copyable.mixin( SampleClass );
 _.FieldsStack.mixin( SampleClass );
 
