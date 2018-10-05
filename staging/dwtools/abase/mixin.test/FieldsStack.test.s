@@ -38,6 +38,27 @@ var _class = _.FieldsStack.__mixin__.prototype;
 function fieldSet( test )
 {
 
+  test.description = 'Compare two maps'; //
+
+  var sample = _class.declareMixinClass();
+  var expected = sample.clone();
+  test.is( sample.equivalentWith( expected ) );
+
+  var newFields =
+  {
+    field0 : 1,
+  }
+
+  sample.fieldSet( newFields );
+  _.mapExtend( sample.Associates, newFields );
+  expected.fieldSet( newFields );
+  _.mapExtend( expected.Associates, newFields );
+
+  test.is( sample.equivalentWith( expected ) );
+
+  sample.fieldSet( 'field0', 0 );
+  test.is( !sample.equivalentWith( expected ) );
+
   test.description = 'Add fields map'; //
 
   var sample = _class.declareMixinClass();

@@ -6,15 +6,38 @@ if( typeof module !== 'undefined' )
 }
 
 var _ = wTools;
-
+var _class = _.FieldsStack.__mixin__.prototype;
 console.log( 'wFieldsStack mixin included' );
 
 /*
 !!! write sample of mixin it in
 */
 
-// Declare class
+var sample = _class.declareMixinClass();
+logger.log( '' )
+logger.log( 'Initial class Sample' )
+logger.log( sample )
 
+var expected = sample.clone();
+
+logger.log( '' )
+logger.log( 'Empty class to compare' )
+logger.log( expected )
+
+logger.log( '' )
+logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) );
+
+var sample = _class.declareMixinClass();
+var expected = _class.declareMixinClass();
+
+logger.log( '' )
+logger.log( 'Empty class to compare' )
+logger.log( expected )
+debugger;
+logger.log( '' )
+logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) ); //Shouldn´t this be true too?
+
+// Declare class
 let o =
 {
   storageFileName : null,
@@ -28,7 +51,6 @@ let Associates =
 {
   storageFileName : o.storageFileName,
   fileProvider : _.define.own( o.fileProvider ),
-  field0 : null,
 }
 
 function SampleClass( o )
@@ -39,7 +61,6 @@ function SampleClass( o )
 function init( o )
 {
   _.instanceInit( this );
-  Object.preventExtensions( this );
 }
 let Extend =
 {
@@ -59,39 +80,11 @@ _.classDeclare
 _.Copyable.mixin( SampleClass );
 _.FieldsStack.mixin( SampleClass );
 
-// Instance of the class
-var sample = _.FieldsStack.__mixin__.prototype.declareMixinClass( );
+sample = new SampleClass();
+expected = new SampleClass();
 logger.log( '' )
-logger.log( 'Initial class Sample' )
-logger.log( sample )
-
-var expected = _.FieldsStack.__mixin__.prototype.declareMixinClass( );
-
+logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) ); //Shouldn´t this be true too?
+sample = _class.declareMixinClass();
+expected = _class.declareMixinClass();
 logger.log( '' )
-logger.log( 'Empty class to compare' )
-logger.log( expected )
-
-logger.log( '' )
-logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) );  // Shouldn´t it be true?
-
-var newFields =
-{
-  field0 : 1,
-}
-
-sample.fieldSet( newFields );
-
-logger.log( '' )
-logger.log( 'Initial classwith added field' )
-logger.log( sample )
-
-var expected = _.FieldsStack.__mixin__.prototype.declareMixinClass( );
-
-logger.log( '' )
-logger.log( 'Empty class to compare' )
-logger.log( expected )
-
-logger.log( '' )
-logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) );  // Since sample has an extra field, shouldn´t it be false?
-debugger;
-logger.log( 'Sample has field0 =', sample.hasField(  'field0' ) ) // Shouldn´t this be true?
+logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) ); //Shouldn´t this be true too?

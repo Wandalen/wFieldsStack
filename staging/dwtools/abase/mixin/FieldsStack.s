@@ -80,7 +80,6 @@ function declareMixinClass()
   {
     storageFileName : o.storageFileName,
     fileProvider : _.define.own( o.fileProvider ),
-    field0 : 1,
   }
 
   function SampleClass( o )
@@ -110,7 +109,8 @@ function declareMixinClass()
   _.Copyable.mixin( SampleClass );
   _.FieldsStack.mixin( SampleClass );
 
-  return new SampleClass();
+  let sample = new SampleClass();
+  return sample;
 }
 
 //
@@ -139,7 +139,7 @@ function fieldSet( fields )
     // logger.log( 'fieldSet new value of ' + s + ' ' + self[ s ] );
   }
   debugger;
-  _.mapExtend( self.Associates, fields )
+  
   return self;
 }
 
