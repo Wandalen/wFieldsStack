@@ -347,6 +347,28 @@ function fieldReset( test )
   var expected2 = null;
   test.identical( sample.field2, expected2 );
 
+  test.description = 'Reset field just by name'; //
+
+  var sample = new SampleClass();
+  var newFields =
+  {
+    field1 : null,
+    field2 : null,
+  }
+  sample.fieldSet( newFields );
+  sample.fieldSet( 'field1', 'one' );
+
+  var expected1 = 'one';
+  test.identical( sample.field1, expected1 );
+  var expected2 = null;
+  test.identical( sample.field2, expected2 );
+
+  sample.fieldReset( 'field1' );
+
+  var expected1 = null;
+  test.identical( sample.field1, expected1 );
+  var expected2 = null;
+  test.identical( sample.field2, expected2 );
 
   /* */
 
@@ -381,6 +403,7 @@ function fieldReset( test )
   test.shouldThrowErrorSync( () => sample.fieldReset( 'Field1', 1 ));
   test.shouldThrowErrorSync( () => sample.fieldReset( 'Field2', 'Value2' ));
   test.shouldThrowErrorSync( () => sample.fieldReset( 'Field2', 2 ));
+  test.shouldThrowErrorSync( () => sample.fieldReset( 'Field3' ));
 
 }
 
