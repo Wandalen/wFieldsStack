@@ -39,7 +39,7 @@ if( typeof module !== 'undefined' )
 var _global = _global_;
 var _ = _global_.wTools;
 var _ObjectHasOwnProperty = Object.hasOwnProperty;
-
+//var Self = _.fieldsStack = _.fieldsStack || Object.create( null );
 //
 
 function onMixin( mixinDescriptor, dstClass )
@@ -58,6 +58,59 @@ function onMixin( mixinDescriptor, dstClass )
   //   descriptor : Self,
   // });
 
+}
+
+//
+
+function declareMixinClass()
+{
+  var _ = _global_.wTools.withArray.Float32;
+
+  // Declare class
+  let o =
+  {
+    storageFileName : null,
+    storageLoaded : null,
+    storageToSave : null,
+    fields : null,
+    fileProvider : null,
+  }
+
+  let Associates =
+  {
+    storageFileName : o.storageFileName,
+    fileProvider : _.define.own( o.fileProvider ),
+  }
+
+  function SampleClass( o )
+  {
+    return _.instanceConstructor( SampleClass, this, arguments );
+  }
+
+  function init( o )
+  {
+    _.instanceInit( this );
+  }
+  let Extend =
+  {
+    init : init,
+    storageLoaded : o.storageLoaded,
+    storageToSave : o.storageToSave,
+    Composes : o.fields,
+    Associates : Associates,
+  }
+  _.classDeclare
+  ({
+    cls : SampleClass,
+    extend : Extend,
+  });
+
+  // Mixin
+  _.Copyable.mixin( SampleClass );
+  _.FieldsStack.mixin( SampleClass );
+
+  let sample = new SampleClass();
+  return sample;
 }
 
 //
@@ -85,7 +138,8 @@ function fieldSet( fields )
     self[ s ] = fields[ s ];
     // logger.log( 'fieldSet new value of ' + s + ' ' + self[ s ] );
   }
-
+  debugger;
+  
   return self;
 }
 
@@ -166,6 +220,7 @@ var Statics =
 
 var Supplement =
 {
+  declareMixinClass : declareMixinClass,
 
   fieldSet : fieldSet,
   fieldReset : fieldReset,
