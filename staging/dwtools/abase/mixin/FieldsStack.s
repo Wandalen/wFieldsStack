@@ -64,7 +64,6 @@ function onMixin( mixinDescriptor, dstClass )
 
 function declareMixinClass()
 {
-  var _ = _global_.wTools.withArray.Float32;
 
   // Declare class
   let o =
@@ -109,8 +108,8 @@ function declareMixinClass()
   _.Copyable.mixin( SampleClass );
   _.FieldsStack.mixin( SampleClass );
 
-  let sample = new SampleClass();
-  return sample;
+  return SampleClass();
+
 }
 
 //
@@ -139,7 +138,7 @@ function fieldSet( fields )
     // logger.log( 'fieldSet new value of ' + s + ' ' + self[ s ] );
   }
   debugger;
-  
+
   return self;
 }
 
