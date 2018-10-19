@@ -42,24 +42,9 @@ let _ = _global_.wTools;
 
 //
 
-<<<<<<< HEAD
-function declareMixinClass()
-{
-
-  // Declare class
-  let o =
-  {
-    storageFileName : null,
-    storageLoaded : null,
-    storageToSave : null,
-    fields : null,
-    fileProvider : null,
-  }
-=======
 /**
  * @class wEventHandler
  */
->>>>>>> upstream/master
 
 let Parent = null;
 let Self = function wFieldsStack( o )
