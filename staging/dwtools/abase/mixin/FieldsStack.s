@@ -109,7 +109,6 @@ function declareMixinClass()
   _.FieldsStack.mixin( SampleClass );
 
   return SampleClass();
-
 }
 
 //

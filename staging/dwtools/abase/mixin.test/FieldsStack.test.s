@@ -27,6 +27,7 @@ if( typeof module !== 'undefined' )
   _.include( 'wTesting' );
 
   require( '../mixin/FieldsStack.s' );
+  require( 'wCopyable' );
 
 }
 
