@@ -7,7 +7,7 @@
   "main": "proto/dwtools/abase/mixin/FieldsStack.s",
   "files": [
     "proto/dwtools/abase/mixin/FieldsStack.s",
-    "production"
+    "proto/dwtools/Tools.s", "production"
   ],
   "scripts": {
     "test": "wtest staging",
