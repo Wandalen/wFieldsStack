@@ -1,9 +1,10 @@
 
+
 about :
 
   name : wFieldsStack
   description : Mixin adds fields rotation mechanism to your class. It's widespread problem to change the value of a field and then after some steps revert old value, no matter what it was. FieldsStack does it for you behind the scene. FieldsStack mixins methods fieldPush, fieldPop which allocate a map of stacks of fields and manage it to avoid any corruption. Use the module to keep it simple and don't repeat yourself.
-  version : 0.3.30
+  version : 0.3.37
   enabled : 1
   interpreters :
   - nodejs >= 6.0.0
@@ -22,31 +23,34 @@ path :
 
   repository : git+https://github.com/Wandalen/wFieldsStack.git
   bugs : https://github.com/Wandalen/wFieldsStack/issues
-  entry.debug : '{path::out.debug}/dwtools/abase/____'
-  entry.release : '{path::out.release}/dwtools/abase/____'
 
 build :
 
-  .debug.raw.export :
-    default : 1
-    filesPath : path::out.debug
-    entryPath : path::entry.debug
-    setting :
+  debug.raw.export :
+    exportDirPath : path::out.debug
+    criterion :
+      default : 1
       debug : 1
       raw : 1
       export : 1
+      tar : 0
     steps :
-      - build::.debug
+      # - build::.debug.raw
       - step::export
 
-  .release.compiled.export :
-    filesPath : path::out.release
-    entryPath : path::entry.release
-    setting :
+  release.compiled.export :
+    exportDirPath : path::out.release
+    criterion :
       debug : 0
       raw : 0
       export : 1
+      tar : 0
     steps :
-      - build::.release.compiled
+      - build::release.compiled
       - step::export
+
+  export.all :
+    steps :
+      - build::debug.raw.export
+      - build::release.compiled.export
 
