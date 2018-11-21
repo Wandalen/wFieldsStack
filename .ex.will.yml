@@ -1,10 +1,9 @@
 
-
 about :
 
   name : wFieldsStack
   description : Mixin adds fields rotation mechanism to your class. It's widespread problem to change the value of a field and then after some steps revert old value, no matter what it was. FieldsStack does it for you behind the scene. FieldsStack mixins methods fieldPush, fieldPop which allocate a map of stacks of fields and manage it to avoid any corruption. Use the module to keep it simple and don't repeat yourself.
-  version : 0.3.37
+  version : 0.3.39
   enabled : 1
   interpreters :
   - nodejs >= 6.0.0
@@ -24,33 +23,27 @@ path :
   repository : git+https://github.com/Wandalen/wFieldsStack.git
   bugs : https://github.com/Wandalen/wFieldsStack/issues
 
+step :
+
+  export.proto :
+    inherit : export
+    export : path::proto
+    tar : 0
+    criterion :
+      debug : 1
+      proto : 1
+
 build :
 
-  debug.raw.export :
-    exportDirPath : path::out.debug
+  proto.export :
     criterion :
       default : 1
       debug : 1
       raw : 1
+      proto : 1
       export : 1
-      tar : 0
+      tar : 1
     steps :
-      # - build::.debug.raw
-      - step::export
-
-  release.compiled.export :
-    exportDirPath : path::out.release
-    criterion :
-      debug : 0
-      raw : 0
-      export : 1
-      tar : 0
-    steps :
-      - build::release.compiled
-      - step::export
-
-  export.all :
-    steps :
-      - build::debug.raw.export
-      - build::release.compiled.export
+      - build::debug.raw
+      - step::export.proto
 
