@@ -166,8 +166,8 @@ reflector:
       ./dwtools/abase/mixin/FieldsStack.s: true
       ./dwtools/abase/mixin.test/FieldsStack.test.s: true
     srcFilter:
-      basePath: ./proto
-      prefixPath: .
+      basePath: .
+      prefixPath: proto
     dstFilter:
       basePath: .
       prefixPath: .
