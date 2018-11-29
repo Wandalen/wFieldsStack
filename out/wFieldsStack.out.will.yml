@@ -56,10 +56,10 @@ path:
       - ./dwtools
       - ./dwtools/Tools.s
       - ./dwtools/abase
-      - ./dwtools/abase/mixin
-      - ./dwtools/abase/mixin/FieldsStack.s
-      - ./dwtools/abase/mixin.test
-      - ./dwtools/abase/mixin.test/FieldsStack.test.s
+      - ./dwtools/abase/l7_mixin
+      - ./dwtools/abase/l7_mixin/FieldsStack.s
+      - ./dwtools/abase/l7_mixin.test
+      - ./dwtools/abase/l7_mixin.test/FieldsStack.test.s
       - ./dwtools/amid
       - ./dwtools/atop
     criterion:
@@ -72,8 +72,8 @@ path:
   exportedTerminals.0:
     path:
       - ./dwtools/Tools.s
-      - ./dwtools/abase/mixin/FieldsStack.s
-      - ./dwtools/abase/mixin.test/FieldsStack.test.s
+      - ./dwtools/abase/l7_mixin/FieldsStack.s
+      - ./dwtools/abase/l7_mixin.test/FieldsStack.test.s
     criterion:
       default: 1
       debug: 1
@@ -163,8 +163,8 @@ reflector:
     recursive: 0
     filePath:
       ./dwtools/Tools.s: true
-      ./dwtools/abase/mixin/FieldsStack.s: true
-      ./dwtools/abase/mixin.test/FieldsStack.test.s: true
+      ./dwtools/abase/l7_mixin/FieldsStack.s: true
+      ./dwtools/abase/l7_mixin.test/FieldsStack.test.s: true
     srcFilter:
       basePath: .
       prefixPath: proto
@@ -287,8 +287,8 @@ exported:
     exportedTerminalsPath:
       path:
         - ./dwtools/Tools.s
-        - ./dwtools/abase/mixin/FieldsStack.s
-        - ./dwtools/abase/mixin.test/FieldsStack.test.s
+        - ./dwtools/abase/l7_mixin/FieldsStack.s
+        - ./dwtools/abase/l7_mixin.test/FieldsStack.test.s
       criterion:
         default: 1
         debug: 1
