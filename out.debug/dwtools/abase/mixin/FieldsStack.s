@@ -37,84 +37,9 @@ let Self = function wFieldsStack( o )
 
 Self.shortName = 'FieldsStack';
 
-// let Self = _.fieldsStack = _.fieldsStack || Object.create( null );
-//
-//
-//
-// function onMixin( mixinDescriptor, dstClass )
-// {
-//   let dstPrototype = dstClass.prototype;
-//
-//   _.assert( arguments.length === 2, 'Expects exactly two arguments' );
-//   _.assert( _.routineIs( dstClass ) );
-//   _.assert( _.mixinHas( dstPrototype,_.Copyable ),'wCopyable should be mixed in first' );
-//
-//   _.mixinApply( this, dstPrototype );
-//
-//   // _.mixinApply
-//   // ({
-//   //   dstPrototype : proto,
-//   //   descriptor : Self,
-//   // });
-//
-// }
-//
-//
-//
-// function declareMixinClass()
-// {
-//   let _ = _global_.wTools.withArray.Float32;
-//
-//   // Declare class
-//   let o =
-//   {
-//     storageFileName : null,
-//     storageLoaded : null,
-//     storageToSave : null,
-//     fields : null,
-//     fileProvider : null,
-//   }
-//
-//   let Associates =
-//   {
-//     storageFileName : o.storageFileName,
-//     fileProvider : _.define.own( o.fileProvider ),
-//   }
-//
-//   function SampleClass( o )
-//   {
-//     return _.instanceConstructor( SampleClass, this, arguments );
-//   }
-//
-//   function init( o )
-//   {
-//     _.instanceInit( this );
-//   }
-//   let Extend =
-//   {
-//     init : init,
-//     storageLoaded : o.storageLoaded,
-//     storageToSave : o.storageToSave,
-//     Composes : o.fields,
-//     Associates : Associates,
-//   }
-//   _.classDeclare
-//   ({
-//     cls : SampleClass,
-//     extend : Extend,
-//   });
-//
-//   // Mixin
-//   _.Copyable.mixin( SampleClass );
-//   _.FieldsStack.mixin( SampleClass );
-//
-//   let sample = new SampleClass();
-//   return sample;
-// }
-
 //
 
-function fieldSet( fields )
+function fieldPush( fields )
 {
   let self = this;
 
@@ -133,9 +58,9 @@ function fieldSet( fields )
     if( !self._fields[ s ] )
     self._fields[ s ] = [];
     self._fields[ s ].push( self[ s ] );
-    // logger.log( 'fieldSet ' + s + ' ' + _.toStrShort( self[ s ] ) + ' -> ' + _.toStrShort( fields[ s ] ) );
+    // logger.log( 'fieldPush ' + s + ' ' + _.toStrShort( self[ s ] ) + ' -> ' + _.toStrShort( fields[ s ] ) );
     self[ s ] = fields[ s ];
-    // logger.log( 'fieldSet new value of ' + s + ' ' + self[ s ] );
+    // logger.log( 'fieldPush new value of ' + s + ' ' + self[ s ] );
   }
 
   return self;
@@ -143,7 +68,7 @@ function fieldSet( fields )
 
 //
 
-function fieldReset( fields )
+function fieldPop( fields )
 {
   let self = this;
   let result = Object.create( null );
@@ -168,10 +93,10 @@ function fieldReset( fields )
     let selfVal = self[ s ];
     let _field = self._fields[ s ];
 
-    // logger.log( 'fieldReset ' + s + ' ' + _.toStrShort( selfVal ) + ' ~ ' + _.toStrShort( wasVal ) );
+    // logger.log( 'fieldPop ' + s + ' ' + _.toStrShort( selfVal ) + ' ~ ' + _.toStrShort( wasVal ) );
 
     _.assert( _.arrayIs( _field ) );
-    _.assert( selfVal === wasVal || wasVal === _.nothing, () => 'Decoupled fieldReset ' + _.toStrShort( selfVal ) + ' != ' + _.toStrShort( wasVal ) );
+    _.assert( selfVal === wasVal || wasVal === _.nothing, () => 'Decoupled fieldPop ' + _.toStrShort( selfVal ) + ' != ' + _.toStrShort( wasVal ) );
     self[ s ] = _field.pop();
     if( !self._fields[ s ].length )
     delete self._fields[ s ];
@@ -219,35 +144,18 @@ let Statics =
 let Supplement =
 {
 
-  // declareMixinClass : declareMixinClass,
-
-  fieldSet : fieldSet,
-  fieldReset : fieldReset,
-
-  fieldPush : fieldSet,
-  fieldPop : fieldReset,
+  fieldPush,
+  fieldPop,
 
   //
 
-  Composes : Composes,
-  Aggregates : Aggregates,
-  Associates : Associates,
-  Restricts : Restricts,
-  Statics : Statics,
+  Composes,
+  Aggregates,
+  Associates,
+  Restricts,
+  Statics,
 
 }
-
-// //
-//
-// let Self =
-// {
-//
-//   onMixin : onMixin,
-//   supplement : Supplement,
-//   name : 'wFieldsStack',
-//   shortName : 'FieldsStack',
-//
-// }
 
 //
 
@@ -259,17 +167,11 @@ _.classDeclare
   withClass : true,
 });
 
-// _global_[ Self.name ] = _[ Self.shortName ] = _.mixinDelcare( Self );
-
 // --
 // export
 // --
 
 _global_[ Self.name ] = _[ Self.shortName ] = Self;
-
-if( typeof module !== 'undefined' )
-if( _global_.WTOOLS_PRIVATE )
-{ /* delete require.cache[ module.id ]; */ }
 
 if( typeof module !== 'undefined' && module !== null )
 module[ 'exports' ] = Self;
