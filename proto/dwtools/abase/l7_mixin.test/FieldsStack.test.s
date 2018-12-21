@@ -18,7 +18,7 @@ if( typeof module !== 'undefined' )
 
 var _ = _global_.wTools.withArray.Float32;
 
-function fieldSet( test )
+function fieldPush( test )
 {
 
   test.description = 'Compare two maps'; //
@@ -32,14 +32,14 @@ function fieldSet( test )
     field0 : 1,
   }
 
-  sample.fieldSet( newFields );
+  sample.fieldPush( newFields );
   _.mapExtend( sample.Associates, newFields );
-  expected.fieldSet( newFields );
+  expected.fieldPush( newFields );
   _.mapExtend( expected.Associates, newFields );
 
   test.is( sample.equivalentWith( expected ) );
 
-  sample.fieldSet( 'field0', 0 );
+  sample.fieldPush( 'field0', 0 );
   test.is( !sample.equivalentWith( expected ) );
 
   test.description = 'Add fields map'; //
@@ -51,7 +51,7 @@ function fieldSet( test )
     field2 : null,
   }
 
-  sample.fieldSet( newFields );
+  sample.fieldPush( newFields );
 
   var expected1 = null;
   test.identical( sample.field1, expected1 );
@@ -71,7 +71,7 @@ function fieldSet( test )
     field2 : 'second value',
   }
 
-  sample.fieldSet( newFields );
+  sample.fieldPush( newFields );
 
   var expected1 = 'first value';
   test.identical( sample.field1, expected1 );
@@ -88,7 +88,7 @@ function fieldSet( test )
     field2 : 'New second value',
   }
 
-  sample.fieldSet( newFields );
+  sample.fieldPush( newFields );
 
   var expected1 = 'New first value';
   test.identical( sample.field1, expected1 );
@@ -101,7 +101,7 @@ function fieldSet( test )
   var sample = this.declareMixinClass();
   var field3 = 'third field';
 
-  sample.fieldSet( 'field3', field3 );
+  sample.fieldPush( 'field3', field3 );
 
   var expected = 'third field';
   test.identical( sample.field3, expected );
@@ -111,7 +111,7 @@ function fieldSet( test )
   var sample = this.declareMixinClass();
   var field3 = 'New third field';
 
-  sample.fieldSet( 'field3', field3 );
+  sample.fieldPush( 'field3', field3 );
 
   var expected = 'New third field';
   test.identical( sample.field3, expected );
@@ -121,7 +121,7 @@ function fieldSet( test )
   var sample = this.declareMixinClass();
   var field3 = 3;
 
-  sample.fieldSet( 'field3', field3 );
+  sample.fieldPush( 'field3', field3 );
 
   var expected = 3;
   test.identical( sample.field3, expected );
@@ -131,7 +131,7 @@ function fieldSet( test )
   var sample = this.declareMixinClass();
   var field3 = [ 0, 1, 2 ];
 
-  sample.fieldSet( 'field3', field3 );
+  sample.fieldPush( 'field3', field3 );
 
   var expected = [ 0, 1, 2 ];
   test.identical( sample.field3, expected );
@@ -141,7 +141,7 @@ function fieldSet( test )
   var sample = this.declareMixinClass();
   var field3 = { 'one' : 1, 'two' : 2, 'three' : 3, };
 
-  sample.fieldSet( 'field3', field3 );
+  sample.fieldPush( 'field3', field3 );
 
   var expected = { 'one' : 1, 'two' : 2, 'three' : 3, };
   test.identical( sample.field3, expected );
@@ -151,7 +151,7 @@ function fieldSet( test )
   var sample = this.declareMixinClass();
   var field3 = null;
 
-  sample.fieldSet( 'field3', field3 );
+  sample.fieldPush( 'field3', field3 );
 
   var expected = null;
   test.identical( sample.field3, expected );
@@ -161,7 +161,7 @@ function fieldSet( test )
   var sample = this.declareMixinClass();
   var field3 = NaN;
 
-  sample.fieldSet( 'field3', field3 );
+  sample.fieldPush( 'field3', field3 );
 
   var expected = NaN;
   test.identical( sample.field3, expected );
@@ -172,28 +172,28 @@ function fieldSet( test )
   return;
 
   var sample = this.declareMixinClass();
-  test.shouldThrowErrorSync( () => sample.fieldSet( ));
+  test.shouldThrowErrorSync( () => sample.fieldPush( ));
 
   var newFields =
   {
     field1 : null,
     field2 : null,
   }
-  test.shouldThrowErrorSync( () => sample.fieldSet( newFields, newFields ));
-  test.shouldThrowErrorSync( () => sample.fieldSet( null ));
-  test.shouldThrowErrorSync( () => sample.fieldSet( NaN ));
-  test.shouldThrowErrorSync( () => sample.fieldSet( 3 ));
-  test.shouldThrowErrorSync( () => sample.fieldSet( 'Fields' ));
-  test.shouldThrowErrorSync( () => sample.fieldSet( null, 'Fields'));
-  test.shouldThrowErrorSync( () => sample.fieldSet( NaN, 'Fields'));
-  test.shouldThrowErrorSync( () => sample.fieldSet( 3, 'Fields'));
-  test.shouldThrowErrorSync( () => sample.fieldSet( 'Fields', 'Value1', 'Value2' ));
+  test.shouldThrowErrorSync( () => sample.fieldPush( newFields, newFields ));
+  test.shouldThrowErrorSync( () => sample.fieldPush( null ));
+  test.shouldThrowErrorSync( () => sample.fieldPush( NaN ));
+  test.shouldThrowErrorSync( () => sample.fieldPush( 3 ));
+  test.shouldThrowErrorSync( () => sample.fieldPush( 'Fields' ));
+  test.shouldThrowErrorSync( () => sample.fieldPush( null, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldPush( NaN, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldPush( 3, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldPush( 'Fields', 'Value1', 'Value2' ));
 
 }
 
 //
 
-function fieldReset( test )
+function fieldPop( test )
 {
 
   test.description = 'Add fields map and reset it'; //
@@ -205,8 +205,8 @@ function fieldReset( test )
     field2 : null,
   }
 
-  sample.fieldSet( newFields );
-  sample.fieldReset( newFields );
+  sample.fieldPush( newFields );
+  sample.fieldPop( newFields );
 
   var expected1 = undefined;
   test.identical( sample.field1, expected1 );
@@ -226,7 +226,7 @@ function fieldReset( test )
     field2 : 'second value',
   }
 
-  sample.fieldSet( newFields );
+  sample.fieldPush( newFields );
 
   var expected1 = 'first value';
   test.identical( sample.field1, expected1 );
@@ -234,7 +234,7 @@ function fieldReset( test )
   var expected2 = 'second value';
   test.identical( sample.field2, expected2 );
 
-  sample.fieldReset( 'field1', 'first value' );
+  sample.fieldPop( 'field1', 'first value' );
 
   var expected1 = undefined;
   test.identical( sample.field1, expected1 );
@@ -250,7 +250,7 @@ function fieldReset( test )
     field1 : null,
     field2 : null,
   }
-  sample.fieldSet( newFields );
+  sample.fieldPush( newFields );
 
   var expected1 = null;
   test.identical( sample.field1, expected1 );
@@ -262,7 +262,7 @@ function fieldReset( test )
     field1 : 'first value',
     field2 : 'second value',
   }
-  sample.fieldSet( newFields );
+  sample.fieldPush( newFields );
 
   var expected1 = 'first value';
   test.identical( sample.field1, expected1 );
@@ -274,14 +274,14 @@ function fieldReset( test )
     field1 : 1,
     field2 : 2,
   }
-  sample.fieldSet( newFields );
+  sample.fieldPush( newFields );
 
   var expected1 = 1;
   test.identical( sample.field1, expected1 );
   var expected2 = 2;
   test.identical( sample.field2, expected2 );  // Fields changed twice
 
-  sample.fieldReset( 'field1', 1 );           // Reset first value
+  sample.fieldPop( 'field1', 1 );           // Reset first value
 
   var expected1 = 'first value';
   test.identical( sample.field1, expected1 );
@@ -293,14 +293,14 @@ function fieldReset( test )
     field1 : 'first value',
     field2 : 2,
   }
-  sample.fieldReset( fields );                  // Reset both values
+  sample.fieldPop( fields );                  // Reset both values
 
   var expected1 = null;
   test.identical( sample.field1, expected1 );
   var expected2 = 'second value';
   test.identical( sample.field2, expected2 );
 
-  sample.fieldReset( 'field2', 'second value' ); // Reset second value
+  sample.fieldPop( 'field2', 'second value' ); // Reset second value
 
   var expected1 = null;
   test.identical( sample.field1, expected1 );
@@ -315,15 +315,15 @@ function fieldReset( test )
     field1 : null,
     field2 : null,
   }
-  sample.fieldSet( newFields );
-  sample.fieldSet( 'field1', 'one' );
+  sample.fieldPush( newFields );
+  sample.fieldPush( 'field1', 'one' );
 
   var expected1 = 'one';
   test.identical( sample.field1, expected1 );
   var expected2 = null;
   test.identical( sample.field2, expected2 );
 
-  sample.fieldReset( 'field1' );
+  sample.fieldPop( 'field1' );
 
   var expected1 = null;
   test.identical( sample.field1, expected1 );
@@ -336,34 +336,34 @@ function fieldReset( test )
   return;
 
   var sample = this.declareMixinClass();
-  test.shouldThrowErrorSync( () => sample.fieldReset( ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( ));
 
   var newFields =
   {
     field1 : null,
     field2 : null,
   }
-  test.shouldThrowErrorSync( () => sample.fieldReset( newFields, newFields ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( null ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( NaN ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( 3 ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( 'Fields' ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( null, 'Fields'));
-  test.shouldThrowErrorSync( () => sample.fieldReset( NaN, 'Fields'));
-  test.shouldThrowErrorSync( () => sample.fieldReset( 3, 'Fields'));
-  test.shouldThrowErrorSync( () => sample.fieldReset( 'Fields', 'Value1', 'Value2' ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( newFields, newFields ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( null ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( NaN ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( 3 ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( 'Fields' ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( null, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldPop( NaN, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldPop( 3, 'Fields'));
+  test.shouldThrowErrorSync( () => sample.fieldPop( 'Fields', 'Value1', 'Value2' ));
 
   var newFields =
   {
     field1 : null,
     field2 : null,
   }
-  sample.fieldSet( newFields );
-  test.shouldThrowErrorSync( () => sample.fieldReset( 'Field1', 'Value1' ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( 'Field1', 1 ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( 'Field2', 'Value2' ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( 'Field2', 2 ));
-  test.shouldThrowErrorSync( () => sample.fieldReset( 'Field3' ));
+  sample.fieldPush( newFields );
+  test.shouldThrowErrorSync( () => sample.fieldPop( 'Field1', 'Value1' ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( 'Field1', 1 ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( 'Field2', 'Value2' ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( 'Field2', 2 ));
+  test.shouldThrowErrorSync( () => sample.fieldPop( 'Field3' ));
 
 }
 
@@ -441,8 +441,8 @@ var Self =
   tests :
   {
 
-    fieldSet : fieldSet,
-    fieldReset : fieldReset,
+    fieldPush : fieldPush,
+    fieldPop: fieldPop,
 
   }
 
