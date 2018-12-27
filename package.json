@@ -26,8 +26,7 @@
     "wProto": ""
   },
   "devDependencies": {
-    "wTesting": "",
-    "wfieldsstack": "."
+    "wTesting": ""
   },
   "keywords": [
     "wTools"
