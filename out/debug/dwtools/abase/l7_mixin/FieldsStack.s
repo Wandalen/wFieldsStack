@@ -27,7 +27,8 @@ let _ = _global_.wTools;
 //
 
 /**
- * @class wEventHandler
+ * @classdesc Mixin adds fields rotation mechanism to your class.
+ * @class wFieldsStack
  */
 
 let Parent = null;
