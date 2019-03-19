@@ -27,7 +27,8 @@ let _ = _global_.wTools;
 //
 
 /**
- * @class wEventHandler
+ * @classdesc Extends you class with fields managing system with methods: fieldPush - sets new value, fieldPop - restores previous value.
+ * @class wFieldsStack
  */
 
 let Parent = null;
