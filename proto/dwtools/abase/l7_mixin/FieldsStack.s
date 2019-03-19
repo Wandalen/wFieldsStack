@@ -27,7 +27,7 @@ let _ = _global_.wTools;
 //
 
 /**
- * @classdesc Extends you class with fields managing system with methods: fieldPush - sets new value, fieldPop - restores previous value.
+ * @classdesc Mixin adds fields rotation mechanism to your class.
  * @class wFieldsStack
  */
 
