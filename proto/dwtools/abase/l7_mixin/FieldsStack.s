@@ -47,7 +47,7 @@ Self.shortName = 'FieldsStack';
  * @param { String } property - name of property
  * @param {} value - value of property
  * @method fieldPush
- * @memberof module:Tools/base/EventHandler.wEventHandler#
+ * @memberof module:Tools/base/FieldsStack.wFieldsStack#
  */
 
 function fieldPush( fields )
@@ -84,7 +84,7 @@ function fieldPush( fields )
  * @param { String } property - name of property
  * @param {} value - current value of property
  * @method fieldPop
- * @memberof module:Tools/base/EventHandler.wEventHandler#
+ * @memberof module:Tools/base/FieldsStack.wFieldsStack#
  */
 
 function fieldPop( fields )
