@@ -29,6 +29,7 @@ let _ = _global_.wTools;
 /**
  * @classdesc Mixin adds fields rotation mechanism to your class.
  * @class wFieldsStack
+ * @memberof module:Tools/base/FieldsStack
  */
 
 let Parent = null;
@@ -40,6 +41,14 @@ let Self = function wFieldsStack( o )
 Self.shortName = 'FieldsStack';
 
 //
+
+/**
+ * @summary Changes value of field `name` saving previous value
+ * @param { String } property - name of property
+ * @param {} value - value of property
+ * @method fieldPush
+ * @memberof module:Tools/base/FieldsStack.wFieldsStack#
+ */
 
 function fieldPush( fields )
 {
@@ -69,6 +78,14 @@ function fieldPush( fields )
 }
 
 //
+
+/**
+ * @summary Restores previous value of field `name`
+ * @param { String } property - name of property
+ * @param {} value - current value of property
+ * @method fieldPop
+ * @memberof module:Tools/base/FieldsStack.wFieldsStack#
+ */
 
 function fieldPop( fields )
 {
