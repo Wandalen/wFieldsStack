@@ -55,7 +55,7 @@ let Associates =
 
 function SampleClass( o )
 {
-  return _.instanceConstructor( SampleClass, this, arguments );
+  return _.workpiece.construct( SampleClass, this, arguments );
 }
 
 function init( o )

@@ -8,9 +8,9 @@ if( typeof module !== 'undefined' )
   let _ = require( '../../Tools.s' );
 
   _.include( 'wTesting' );
+  _.include( 'wCopyable' );
 
   require( '../l7_mixin/FieldsStack.s' );
-  require( 'wCopyable' );
 
 }
 
@@ -391,19 +391,19 @@ function declareMixinClass()
 
   function SampleClass( o )
   {
-    return _.instanceConstructor( SampleClass, this, arguments );
+    return _.workpiece.construct( SampleClass, this, arguments );
   }
   function init( o )
   {
-    _.instanceInit( this );
+    _.workpiece.initFields( this );
   }
   let Extend =
   {
-    init : init,
+    init,
     storageLoaded : o.storageLoaded,
     storageToSave : o.storageToSave,
     Composes : o.fields,
-    Associates : Associates,
+    Associates,
   }
   _.classDeclare
   ({
@@ -435,14 +435,14 @@ var Self =
 
   context :
   {
-    declareMixinClass : declareMixinClass,
+    declareMixinClass,
   },
 
   tests :
   {
 
-    fieldPush : fieldPush,
-    fieldPop: fieldPop,
+    fieldPush,
+    fieldPop,
 
   }
 
@@ -452,6 +452,6 @@ var Self =
 
 Self = wTestSuite( Self );
 if( typeof module !== 'undefined' && !module.parent )
-_.Tester.test( Self.name );
+wTester.test( Self.name );
 
 } )( );
