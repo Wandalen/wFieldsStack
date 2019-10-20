@@ -426,7 +426,7 @@ function declareMixinClass()
 var Self =
 {
 
-  name : 'Tools/base/Mixin',
+  name : 'Tools.base.Mixin',
   silencing : 1,
   enabled : 1,
   // verbosity : 7,
