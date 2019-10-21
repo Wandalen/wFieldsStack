@@ -23,7 +23,7 @@ about :
 path :
 
   repository : git+https:///github.com/Wandalen/wFieldsStack.git
-  remotes :
+  origins :
    - git+https:///github.com/Wandalen/wFieldsStack.git
    - npm:///wfieldsstack
   bugtracker : https:///github.com/Wandalen/wFieldsStack/issues
