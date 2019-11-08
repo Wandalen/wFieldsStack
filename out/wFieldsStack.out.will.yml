@@ -3,18 +3,19 @@ root:
   - wFieldsStack.out
 consistency:
   wFieldsStack.out.will.yml: &ref_0
-    hash: 5122ea7b7548fe209ff4d7b60a2f9a89
-    size: 39004
+    hash: 9a477ccc32c5351b09424ec7cbb4901d
+    size: 39033
   ../.ex.will.yml: &ref_1
     hash: 15f2b0364d39ec1fec2dfc836f704cdd
     size: 2075
   ../.im.will.yml: &ref_2
-    hash: 12a6c41cd86a710e43e599e083358a39
-    size: 4947
+    hash: e578d7a6aea7e6a45aeb32d9fea1ed02
+    size: 5021
 module:
   wFieldsStack.out:
     about:
       name: wFieldsStack
+      org: noorg
       description: >-
         Mixin adds fields rotation mechanism to your class. It's widespread
         problem to change the value of a field and then after some steps revert
@@ -66,9 +67,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wFieldsStack.git'
       origins:
@@ -78,15 +76,15 @@ module:
       bugtracker:
         path: 'https:///github.com/Wandalen/wFieldsStack/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       out:
-        criterion:
-          predefined: 0
         path: .
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - ../package-lock.json
+          - ../package.json
+          - ../node_modules
       proto:
         path: ../proto
       export:
@@ -151,11 +149,13 @@ module:
         path: '{path::out.*=}/source/Index.s'
       exported.dir.proto.export:
         criterion:
+          generated: 1
           content: proto
           export: 1
         path: ../proto
       exported.files.proto.export:
         criterion:
+          generated: 1
           content: proto
           export: 1
         path:
@@ -338,6 +338,7 @@ module:
           prefixPath: ../proto
         mandatory: 1
         criterion:
+          generated: 1
           content: proto
           export: 1
       exported.files.proto.export:
@@ -350,6 +351,7 @@ module:
         recursive: 0
         mandatory: 1
         criterion:
+          generated: 1
           content: proto
           export: 1
     step:
@@ -707,6 +709,7 @@ module:
         opts:
           reflector: 'reflector::exported.proto.export*'
         criterion:
+          generated: 1
           content: proto
           export: 1
         inherit:
@@ -715,6 +718,7 @@ module:
         opts:
           reflector: 'reflector::exported.files.proto.export*'
         criterion:
+          generated: 1
           content: proto
           export: 1
         inherit:
@@ -813,6 +817,7 @@ module:
   ../:
     about:
       name: wFieldsStack
+      org: noorg
       description: >-
         Mixin adds fields rotation mechanism to your class. It's widespread
         problem to change the value of a field and then after some steps revert
@@ -864,9 +869,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wFieldsStack.git'
       origins:
@@ -876,21 +878,21 @@ module:
       bugtracker:
         path: 'https:///github.com/Wandalen/wFieldsStack/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       out:
-        criterion:
-          predefined: 0
         path: out
       temp:
-        path: 'path::out'
+        path:
+          - 'path::out'
+          - package-lock.json
+          - package.json
+          - node_modules
       proto:
-        path: ./proto
+        path: proto
       export:
         path: '{path::proto}/**'
       doc:
-        path: ./doc
+        path: doc
       out.raw.debug:
         criterion:
           debug: debug
@@ -1512,6 +1514,6 @@ module:
         hash: 15f2b0364d39ec1fec2dfc836f704cdd
         size: 2075
       ../.im.will.yml:
-        hash: 12a6c41cd86a710e43e599e083358a39
-        size: 4947
+        hash: e578d7a6aea7e6a45aeb32d9fea1ed02
+        size: 5021
       wFieldsStack.out.will.yml: *ref_0
