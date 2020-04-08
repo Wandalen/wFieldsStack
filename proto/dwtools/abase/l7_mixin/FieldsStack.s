@@ -1,6 +1,6 @@
 ( function _FieldsStack_s_( ) {
 
-'use strict'; 
+'use strict';
 
 /**
  * Mixin adds fields rotation mechanism to your class. It's widespread problem to change the value of a field and then after some steps revert old value, no matter what it was. FieldsStack does it for you behind the scene. FieldsStack mixins methods fieldPush, fieldPop which allocate a map of stacks of fields and manage it to avoid any corruption. Use the module to keep it simple and don't repeat yourself.
@@ -29,7 +29,8 @@ let _ = _global_.wTools;
 /**
  * @classdesc Mixin adds fields rotation mechanism to your class.
  * @class wFieldsStack
- * @memberof module:Tools/base/FieldsStack
+ * @namespace Tools
+ * @module Tools/base/FieldsStack
  */
 
 let Parent = null;
@@ -47,7 +48,9 @@ Self.shortName = 'FieldsStack';
  * @param { String } property - name of property
  * @param {} value - value of property
  * @method fieldPush
- * @memberof module:Tools/base/FieldsStack.wFieldsStack#
+ * @module Tools/base/FieldsStack
+ * @namespace Tools
+ * @class wFieldsStack
  */
 
 function fieldPush( fields )
@@ -84,7 +87,9 @@ function fieldPush( fields )
  * @param { String } property - name of property
  * @param {} value - current value of property
  * @method fieldPop
- * @memberof module:Tools/base/FieldsStack.wFieldsStack#
+ * @module Tools/base/FieldsStack
+ * @namespace Tools
+ * @class wFieldsStack
  */
 
 function fieldPop( fields )
