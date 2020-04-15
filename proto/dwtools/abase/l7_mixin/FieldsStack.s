@@ -46,7 +46,7 @@ Self.shortName = 'FieldsStack';
 /**
  * @summary Changes value of field `name` saving previous value
  * @param { String } property - name of property
- * @param {} value - value of property
+ * @param {*} value - value of property
  * @method fieldPush
  * @module Tools/base/FieldsStack
  * @namespace Tools
@@ -85,7 +85,7 @@ function fieldPush( fields )
 /**
  * @summary Restores previous value of field `name`
  * @param { String } property - name of property
- * @param {} value - current value of property
+ * @param {*} value - current value of property
  * @method fieldPop
  * @module Tools/base/FieldsStack
  * @namespace Tools
