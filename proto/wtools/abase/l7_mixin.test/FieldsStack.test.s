@@ -16,7 +16,7 @@ if( typeof module !== 'undefined' )
 
 //
 
-var _ = _global_.wTools.withDefaultLong.Fx;
+var _ = _global_.wTools.withDefaultLongType.Fx;
 
 function fieldPush( test )
 {
@@ -371,7 +371,7 @@ function fieldPop( test )
 
 function declareMixinClass()
 {
-  let _ = _global_.wTools.withDefaultLong.Fx;
+  let _ = _global_.wTools.withDefaultLongType.Fx;
 
   // Declare class
   let o =
