@@ -60,7 +60,7 @@ function SampleClass( o )
 
 function init( o )
 {
-  _.instanceInit( this );
+  _.workpiece.initFields( this );
 }
 let Extend =
 {

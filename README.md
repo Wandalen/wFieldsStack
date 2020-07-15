@@ -6,7 +6,7 @@ Mixin adds fields rotation mechanism to your class. It's widespread problem to c
 ### Try out
 ```
 npm install
-node sample/Sample.js
+node sample/Sample.s
 ```
 
 
