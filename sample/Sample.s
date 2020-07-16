@@ -6,7 +6,7 @@ if( typeof module !== 'undefined' )
   require( 'wCopyable' );
 }
 
-var _ = wTools;
+let _ = wTools;
 
 console.log( 'wFieldsStack mixin included' );
 

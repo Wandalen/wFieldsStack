@@ -16,7 +16,7 @@ if( typeof module !== 'undefined' )
 
 //
 
-var _ = _global_.wTools.withDefaultLong.Fx;
+let _ = _global_.wTools.withDefaultLong.Fx;
 
 function fieldPush( test )
 {
@@ -423,7 +423,7 @@ function declareMixinClass()
 // declare
 // --
 
-var Self =
+let Self =
 {
 
   name : 'Tools.base.Mixin',
