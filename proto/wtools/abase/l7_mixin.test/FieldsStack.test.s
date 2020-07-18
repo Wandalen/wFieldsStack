@@ -397,7 +397,7 @@ function declareMixinClass()
   {
     _.workpiece.initFields( this );
   }
-  let Extend =
+  let Extension =
   {
     init,
     storageLoaded : o.storageLoaded,
@@ -408,7 +408,7 @@ function declareMixinClass()
   _.classDeclare
   ({
     cls : SampleClass,
-    extend : Extend,
+    extend : Extension,
   });
 
   // Mixin
@@ -426,7 +426,7 @@ function declareMixinClass()
 let Self =
 {
 
-  name : 'Tools.base.Mixin',
+  name : 'Tools.Mixin',
   silencing : 1,
   enabled : 1,
   // verbosity : 7,
