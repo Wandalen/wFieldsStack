@@ -8,8 +8,7 @@
 */
 
 /**
- * @file FieldsStack.s.
- */
+ *  */
 
 if( typeof module !== 'undefined' )
 {
