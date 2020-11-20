@@ -25,7 +25,7 @@ function fieldPush( test )
 
   var sample = this.declareMixinClass();
   var expected = sample.clone();
-  test.is( sample.equivalentWith( expected ) );
+  test.true( sample.equivalentWith( expected ) );
 
   var newFields =
   {
@@ -37,10 +37,10 @@ function fieldPush( test )
   expected.fieldPush( newFields );
   _.mapExtend( expected.Associates, newFields );
 
-  test.is( sample.equivalentWith( expected ) );
+  test.true( sample.equivalentWith( expected ) );
 
   sample.fieldPush( 'field0', 0 );
-  test.is( !sample.equivalentWith( expected ) );
+  test.true( !sample.equivalentWith( expected ) );
 
   test.description = 'Add fields map'; //
 
