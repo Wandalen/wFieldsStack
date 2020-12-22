@@ -64,11 +64,11 @@ function init( o )
 }
 let Extend =
 {
-  init : init,
+  init,
   storageLoaded : o.storageLoaded,
   storageToSave : o.storageToSave,
   Composes : o.fields,
-  Associates : Associates,
+  Associates,
 }
 _.classDeclare
 ({
