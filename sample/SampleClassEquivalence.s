@@ -6,38 +6,39 @@ if( typeof module !== 'undefined' )
 }
 
 let _ = wTools;
-var _class = _.FieldsStack.__mixin__.prototype;
-console.log( 'wFieldsStack mixin included' );
+// var _class = _.FieldsStack.__mixin__.prototype;
+// console.log( 'wFieldsStack mixin included' );
 
-/*
-!!! write sample of mixin it in
-*/
+// /*
+// !!! write sample of mixin it in
+// */
 
-var sample = _class.declareMixinClass();
-logger.log( '' )
-logger.log( 'Initial class Sample' )
-logger.log( sample )
+// var sample = _class.declareMixinClass();
+// logger.log( '' )
+// logger.log( 'Initial class Sample' )
+// logger.log( sample )
 
-var expected = sample.clone();
+// var expected = sample.clone();
 
-logger.log( '' )
-logger.log( 'Empty class to compare' )
-logger.log( expected )
+// logger.log( '' )
+// logger.log( 'Empty class to compare' )
+// logger.log( expected )
 
-logger.log( '' )
-logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) );
+// logger.log( '' )
+// logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) );
 
-var sample = _class.declareMixinClass();
-var expected = _class.declareMixinClass();
+// var sample = _class.declareMixinClass();
+// var expected = _class.declareMixinClass();
 
-logger.log( '' )
-logger.log( 'Empty class to compare' )
-logger.log( expected )
-debugger;
-logger.log( '' )
-logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) ); //Shouldn´t this be true too?
+// logger.log( '' )
+// logger.log( 'Empty class to compare' )
+// logger.log( expected )
+// debugger;
+// logger.log( '' )
+// logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) ); //Shouldn´t this be true too?
 
-// Declare class
+/* Declare class */
+
 let o =
 {
   storageFileName : null,
@@ -76,15 +77,15 @@ _.classDeclare
   extend : Extend,
 });
 
-// Mixin
+/* Mixin */
 _.Copyable.mixin( SampleClass );
 _.FieldsStack.mixin( SampleClass );
 
-sample = new SampleClass();
-expected = new SampleClass();
+var sample = new SampleClass();
+var expected = new SampleClass();
 logger.log( '' )
 logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) ); //Shouldn´t this be true too?
-sample = _class.declareMixinClass();
-expected = _class.declareMixinClass();
-logger.log( '' )
-logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) ); //Shouldn´t this be true too?
+// sample = _class.declareMixinClass();
+// expected = _class.declareMixinClass();
+// logger.log( '' )
+// logger.log( 'Sample and Expected are equivalent =', sample.equivalentWith( expected ) ); //Shouldn´t this be true too?
