@@ -1,4 +1,5 @@
-( function _FieldsStack_s_( ) {
+( function _FieldsStack_s_( )
+{
 
 'use strict';
 

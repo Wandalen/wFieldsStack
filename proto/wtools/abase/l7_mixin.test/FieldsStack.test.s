@@ -1,4 +1,5 @@
-( function  _FieldsStack_test_s_( ) {
+( function _FieldsStack_test_s_()
+{
 
 'use strict';
 
@@ -139,11 +140,11 @@ function fieldPush( test )
   test.description = 'Change field to map'; //
 
   var sample = this.declareMixinClass();
-  var field3 = { 'one' : 1, 'two' : 2, 'three' : 3, };
+  var field3 = { 'one' : 1, 'two' : 2, 'three' : 3 };
 
   sample.fieldPush( 'field3', field3 );
 
-  var expected = { 'one' : 1, 'two' : 2, 'three' : 3, };
+  var expected = { 'one' : 1, 'two' : 2, 'three' : 3 };
   test.identical( sample.field3, expected );
 
   test.description = 'Change field to null'; //
