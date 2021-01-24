@@ -8,7 +8,7 @@ Mixin adds fields rotation mechanism to your class. It's widespread problem to c
 git clone https://github.com/Wandalen/wFieldsStack
 cd wFieldsStack
 npm install
-node sample/Sample.s
+node sample/trivial/Sample.s
 ```
 
 ## To add to your project
