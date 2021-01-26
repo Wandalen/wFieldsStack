@@ -2,15 +2,12 @@ format: outwillfile-2.0
 root:
   - wFieldsStack.out
 consistency:
-  wFieldsStack.out.will.yml: &ref_0
-    hash: 50c9c8ce9850c72751b27f1ffffae285
-    size: 39134
-  ../.ex.will.yml: &ref_1
+  ../.ex.will.yml: &ref_0
     hash: f9855f54d8de8f53ac3f44fb69e3c57b
     size: 2076
-  ../.im.will.yml: &ref_2
-    hash: b82b12f1caa6b5cb4336c8fc83e00903
-    size: 5126
+  ../.im.will.yml: &ref_1
+    hash: 9adc92d171184230254683a796b1b6b2
+    size: 5196
 module:
   wFieldsStack.out:
     about:
@@ -25,18 +22,18 @@ module:
         module to keep it simple and don't repeat yourself.
       enabled: 1
       version: 0.4.0
-      interpreters:
+      interpreters: &ref_2
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
+      keywords: &ref_3
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
+      contributors: &ref_4
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wfieldsstack
-      npm.scripts:
+      npm.scripts: &ref_5
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -177,6 +174,10 @@ module:
         enabled: 0
       wProto:
         path: npm:///wProto
+        autoExporting: 0
+        enabled: 0
+      wCopyable:
+        path: npm:///wCopyable
         autoExporting: 0
         enabled: 0
       wfieldsstack:
@@ -704,24 +705,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          filePath: reflector::exported.proto.export
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          filePath: reflector::exported.files.proto.export
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -810,9 +793,8 @@ module:
           content: proto
           export: 1
     consistency:
-      wFieldsStack.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: wFieldsStack
@@ -826,20 +808,13 @@ module:
         module to keep it simple and don't repeat yourself.
       enabled: 1
       version: 0.4.0
-      interpreters:
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - wTools
+      interpreters: *ref_2
+      keywords: *ref_3
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
+      contributors: *ref_4
       npm.name: wfieldsstack
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      npm.scripts: *ref_5
     path:
       module.willfiles:
         criterion:
@@ -955,6 +930,10 @@ module:
         enabled: 0
       wProto:
         path: npm:///wProto
+        autoExporting: 0
+        enabled: 0
+      wCopyable:
+        path: npm:///wCopyable
         autoExporting: 0
         enabled: 0
       wfieldsstack:
@@ -1510,6 +1489,5 @@ module:
         hash: f9855f54d8de8f53ac3f44fb69e3c57b
         size: 2076
       ../.im.will.yml:
-        hash: b82b12f1caa6b5cb4336c8fc83e00903
-        size: 5126
-      wFieldsStack.out.will.yml: *ref_0
+        hash: 9adc92d171184230254683a796b1b6b2
+        size: 5196
