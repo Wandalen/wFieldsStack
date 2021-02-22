@@ -73,7 +73,7 @@ function fieldPush( fields )
     if( !self._fields[ s ] )
     self._fields[ s ] = [];
     self._fields[ s ].push( self[ s ] );
-    // logger.log( 'fieldPush ' + s + ' ' + _.toStrShort( self[ s ] ) + ' -> ' + _.toStrShort( fields[ s ] ) );
+    // logger.log( 'fieldPush ' + s + ' ' + _.entity.exportStringShort( self[ s ] ) + ' -> ' + _.entity.exportStringShort( fields[ s ] ) );
     self[ s ] = fields[ s ];
     // logger.log( 'fieldPush new value of ' + s + ' ' + self[ s ] );
   }
@@ -118,10 +118,10 @@ function fieldPop( fields )
     let selfVal = self[ s ];
     let _field = self._fields[ s ];
 
-    // logger.log( 'fieldPop ' + s + ' ' + _.toStrShort( selfVal ) + ' ~ ' + _.toStrShort( wasVal ) );
+    // logger.log( 'fieldPop ' + s + ' ' + _.entity.exportStringShort( selfVal ) + ' ~ ' + _.entity.exportStringShort( wasVal ) );
 
     _.assert( _.arrayIs( _field ) );
-    _.assert( selfVal === wasVal || wasVal === _.nothing, () => 'Decoupled fieldPop ' + _.toStrShort( selfVal ) + ' != ' + _.toStrShort( wasVal ) );
+    _.assert( selfVal === wasVal || wasVal === _.nothing, () => 'Decoupled fieldPop ' + _.entity.exportStringShort( selfVal ) + ' != ' + _.entity.exportStringShort( wasVal ) );
     self[ s ] = _field.pop();
     if( !self._fields[ s ].length )
     delete self._fields[ s ];
