@@ -128,8 +128,8 @@ function fieldPop( fields )
     result[ s ] = self[ s ];
   }
 
-  if( !Object.keys( result ).length === 1 )
-  debugger;
+  // if( !Object.keys( result ).length === 1 )
+  // debugger;
 
   if( Object.keys( result ).length === 1 )
   result = result[ Object.keys( result )[ 0 ] ];
