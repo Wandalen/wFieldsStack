@@ -20,9 +20,9 @@ if( typeof module !== 'undefined' )
 
 }
 
-let _ObjectHasOwnProperty = Object.hasOwnProperty;
-let _global = _global_;
-let _ = _global_.wTools;
+const _ObjectHasOwnProperty = Object.hasOwnProperty;
+const _global = _global_;
+const _ = _global_.wTools;
 
 //
 
@@ -34,7 +34,7 @@ let _ = _global_.wTools;
  */
 
 let Parent = null;
-let Self = wFieldsStack;
+const Self = wFieldsStack;
 function wFieldsStack( o )
 {
   return _.workpiece.construct( Self, this, arguments );

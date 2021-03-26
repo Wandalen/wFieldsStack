@@ -17,7 +17,7 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _ = _global_.wTools.withDefaultLong.Fx;
+const _ = _global_.wTools.withDefaultLong.Fx;
 
 function fieldPush( test )
 {
@@ -372,7 +372,7 @@ function fieldPop( test )
 
 function declareMixinClass()
 {
-  let _ = _global_.wTools.withDefaultLong.Fx;
+  const _ = _global_.wTools.withDefaultLong.Fx;
 
   // Declare class
   let o =
@@ -424,7 +424,7 @@ function declareMixinClass()
 // declare
 // --
 
-let Self =
+const Proto =
 {
 
   name : 'Tools.Mixin',
@@ -451,7 +451,7 @@ let Self =
 
 //
 
-Self = wTestSuite( Self );
+const Self = wTestSuite( Proto );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 
