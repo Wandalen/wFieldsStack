@@ -9,7 +9,8 @@
   [
     "proto/wtools/abase/l7_mixin/FieldsStack.s",
     "proto/wtools/Tools.s",
-    "out"
+    "out",
+    "proto/node_modules"
   ],
   "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
   "repository" :
