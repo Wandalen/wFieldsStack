@@ -83,8 +83,8 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - /pro/module/wFieldsStack/proto/wtools/abase/l7_mixin/FieldsStack.s
-    - /pro/module/wFieldsStack/proto/node_modules/wfieldsstack
+    - proto/wtools/abase/l7_mixin/FieldsStack.s
+    - proto/node_modules/wfieldsstack
 reflector:
   reflect.proto:
     inherit: predefined.*
