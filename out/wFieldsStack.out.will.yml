@@ -1532,6 +1532,4 @@ module:
       ../.im.will.yml:
         hash: a321fb71b60e97fdd4e0face3d8b3994
         size: 5111
-      wFieldsStack.out.will.yml:
-        hash: 0f2fb263efd0d3d674854fbda0469d9b
-        size: 39712
+      wFieldsStack.out.will.yml: *ref_0
