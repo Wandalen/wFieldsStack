@@ -17,7 +17,7 @@ if( typeof module !== 'undefined' )
 
 //
 
-const _ = _global_.wTools.withDefaultLong.Fx;
+const _ = _global_.wTools.withLong.Fx;
 
 function fieldPush( test )
 {
@@ -34,9 +34,9 @@ function fieldPush( test )
   }
 
   sample.fieldPush( newFields );
-  _.mapExtend( sample.Associates, newFields );
+  _.props.extend( sample.Associates, newFields );
   expected.fieldPush( newFields );
-  _.mapExtend( expected.Associates, newFields );
+  _.props.extend( expected.Associates, newFields );
 
   test.true( sample.equivalentWith( expected ) );
 
@@ -372,7 +372,7 @@ function fieldPop( test )
 
 function declareMixinClass()
 {
-  const _ = _global_.wTools.withDefaultLong.Fx;
+  const _ = _global_.wTools.withLong.Fx;
 
   // Declare class
   let o =
