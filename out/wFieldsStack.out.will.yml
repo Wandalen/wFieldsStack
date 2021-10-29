@@ -3,8 +3,8 @@ root:
   - wFieldsStack.out
 consistency:
   ../will.yml: &ref_0
-    hash: 4ea44cc2ba15133dfbf993ea1860ee12
-    size: 6967
+    hash: 0ab851863f134a95cf729d71b3729ecb
+    size: 6826
 module:
   wFieldsStack.out:
     about:
@@ -379,9 +379,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -717,12 +714,6 @@ module:
           - 'step::doc.export'
         criterion:
           content: doc
-          export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
           export: 1
       export:
         steps:
@@ -1084,9 +1075,6 @@ module:
           content: npm
         inherit:
           - module.export
-      npm.publish:
-        opts:
-          shell: npm publish
       npm.generate.debug.raw:
         opts:
           entryPath: 'path::entry.out.*=1'
@@ -1423,12 +1411,6 @@ module:
         criterion:
           content: doc
           export: 1
-      npm.export:
-        steps:
-          - 'step::npm.publish'
-        criterion:
-          content: npm
-          export: 1
       export:
         steps:
           - 'build::proto.export'
@@ -1486,5 +1468,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: 4ea44cc2ba15133dfbf993ea1860ee12
-        size: 6967
+        hash: 0ab851863f134a95cf729d71b3729ecb
+        size: 6826
