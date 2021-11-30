@@ -3,8 +3,8 @@ root:
   - wFieldsStack.out
 consistency:
   ../will.yml: &ref_0
-    hash: 0ab851863f134a95cf729d71b3729ecb
-    size: 6826
+    hash: 45cab4c8570e19c05088798bc4ef1934
+    size: 6834
 module:
   wFieldsStack.out:
     about:
@@ -1468,5 +1468,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: 0ab851863f134a95cf729d71b3729ecb
-        size: 6826
+        hash: 45cab4c8570e19c05088798bc4ef1934
+        size: 6834
