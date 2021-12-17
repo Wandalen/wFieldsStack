@@ -1,6 +1,6 @@
 {
   "name": "wfieldsstack",
-  "version": "0.3.317",
+  "version": "0.3.318",
   "description": "Mixin adds fields rotation mechanism to your class. It's widespread problem to change the value of a field and then after some steps revert old value, no matter what it was. FieldsStack does it for you behind the scene. FieldsStack mixins methods fieldPush, fieldPop which allocate a map of stacks of fields and manage it to avoid any corruption. Use the module to keep it simple and don't repeat yourself.",
   "author": "Kostiantyn Wandalen <wandalen@obox.systems>",
   "license": "MIT",
@@ -24,12 +24,12 @@
     "url": "https://github.com/Wandalen/wFieldsStack/issues"
   },
   "dependencies": {
-    "wTools": "alpha",
-    "wProto": "alpha",
-    "wCopyable": "alpha"
+    "wTools": "delta",
+    "wProto": "delta",
+    "wCopyable": "delta"
   },
   "devDependencies": {
-    "wTesting": "alpha",
+    "wTesting": "delta",
     "eslint": "7.32.0"
   },
   "keywords": [
